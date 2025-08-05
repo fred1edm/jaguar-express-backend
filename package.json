@@ -1,11 +1,15 @@
 {
   "name": "jaguar-express-backend",
   "version": "1.0.0",
+  "description": "Backend de Jaguar Express para gestión de negocios, autenticación y auditoría.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon src/server.ts",
-    "build": "tsc",
+    "build": "prisma generate && tsc",
     "start": "node dist/server.js",
+    "railway:build": "prisma generate && npm run build",
+    "railway:start": "npm start",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
@@ -15,7 +19,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "engines": {
+    "node": ">=18"
+  },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
     "@types/jsonwebtoken": "^9.0.10",
