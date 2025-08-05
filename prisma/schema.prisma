@@ -1,0 +1,268 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id         String     @id @default(cuid())
+  email      String     @unique
+  password   String
+  name       String?
+  role       AdminRole  @default(SOPORTE)
+  isActive   Boolean    @default(true)
+  lastAccess DateTime?
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  logs       AdminLog[] // Relación con logs de auditoría
+
+  @@map("admins")
+}
+
+model Business {
+  id           String       @id @default(cuid())
+  name         String
+  type         BusinessType
+  description  String?
+  address      String
+  phone        String
+  zone         String
+  schedule     Json
+  deliveryFee  Float        @default(0)
+  minimumOrder Float        @default(0)
+  rating       Float        @default(0)
+  reviewCount  Int          @default(0)
+  isActive     Boolean      @default(true)
+  isPromoted   Boolean      @default(false)
+  discount     Json?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  logo         String?
+  menuImages   String[]     @default([])
+  image        String?
+  orders       Order[]
+  products     Product[]
+
+  @@map("businesses")
+}
+
+model Product {
+  id              String      @id @default(cuid())
+  name            String
+  description     String?
+  price           Float
+  image           String?
+  category        String
+  isAvailable     Boolean     @default(true)
+  isPopular       Boolean     @default(false)
+  preparationTime Int         @default(15)
+  ingredients     Json?
+  allergens       Json?
+  discount        Json?
+  businessId      String
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  orderItems      OrderItem[]
+  business        Business    @relation(fields: [businessId], references: [id], onDelete: Cascade)
+
+  @@map("products")
+}
+
+model Order {
+  id              String        @id @default(cuid())
+  type            OrderType     @default(DELIVERY)
+  customerName    String
+  customerPhone   String
+  customerAddress String
+  customerNotes   String?
+  businessId      String?
+  paymentMethod   PaymentMethod
+  paymentProof    String?
+  subtotal        Float
+  deliveryFee     Float         @default(0)
+  total           Float
+  status          OrderStatus   @default(NUEVO)
+  assignedDriver  String?
+  estimatedTime   String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  userId          String?
+  items           OrderItem[]
+  business        Business?     @relation(fields: [businessId], references: [id])
+  user            User?         @relation(fields: [userId], references: [id])
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  quantity  Int
+  price     Float
+  notes     String?
+  orderId   String
+  productId String
+  createdAt DateTime @default(now())
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product   Product  @relation(fields: [productId], references: [id])
+
+  @@map("order_items")
+}
+
+model DeliveryPerson {
+  id              String         @id @default(cuid())
+  name            String
+  phone           String         @unique
+  email           String?
+  vehicle         Json
+  status          DeliveryStatus @default(INACTIVO)
+  currentLocation Json?
+  totalDeliveries Int            @default(0)
+  rating          Float          @default(0)
+  totalReviews    Int            @default(0)
+  isActive        Boolean        @default(true)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  @@map("delivery_personnel")
+}
+
+model CustomOrder {
+  id              String            @id @default(cuid())
+  description     String
+  category        String
+  urgency         UrgencyLevel      @default(NORMAL)
+  customerName    String
+  customerPhone   String
+  customerAddress String
+  status          CustomOrderStatus @default(PENDIENTE)
+  estimatedCost   Float?
+  finalCost       Float?
+  notes           String?
+  adminNotes      String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  @@map("custom_orders")
+}
+
+model TransportRequest {
+  id             String          @id @default(cuid())
+  serviceType    String
+  vehicleType    String
+  origin         String
+  destination    String
+  description    String
+  customerName   String
+  customerPhone  String
+  scheduledDate  DateTime?
+  estimatedCost  Float?
+  finalCost      Float?
+  status         TransportStatus @default(COTIZANDO)
+  assignedDriver String?
+  notes          String?
+  adminNotes     String?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  @@map("transport_requests")
+}
+
+model User {
+  id            String   @id @default(cuid())
+  phone         String   @unique
+  email         String   @unique
+  createdAt     DateTime @default(now())
+  acceptedTerms Boolean
+  address       String
+  fullName      String
+  locationLat   Float
+  locationLng   Float
+  phoneVerified Boolean  @default(false)
+  orders        Order[]
+
+  @@map("users")
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  PENDING_VERIFICATION
+}
+
+enum BusinessType {
+  RESTAURANTE
+  TIENDA
+  FARMACIA
+  OTROS
+}
+
+enum OrderType {
+  DELIVERY
+  ENCARGO
+  TRANSPORTE
+}
+
+enum OrderStatus {
+  NUEVO
+  CONFIRMADO
+  PREPARANDO
+  EN_CAMINO
+  ENTREGADO
+  CANCELADO
+}
+
+enum PaymentMethod {
+  EFECTIVO
+  YAPE
+  PLIN
+}
+
+enum DeliveryStatus {
+  DISPONIBLE
+  OCUPADO
+  DESCANSO
+  INACTIVO
+}
+
+enum CustomOrderStatus {
+  PENDIENTE
+  COTIZANDO
+  ACEPTADO
+  COMPRANDO
+  EN_CAMINO
+  ENTREGADO
+  CANCELADO
+}
+
+enum TransportStatus {
+  COTIZANDO
+  CONFIRMADO
+  EN_CAMINO
+  ENTREGADO
+  CANCELADO
+}
+
+enum UrgencyLevel {
+  NORMAL
+  URGENTE
+}
+
+model AdminLog {
+  id          String   @id @default(cuid())
+  adminId     String
+  admin       Admin    @relation(fields: [adminId], references: [id])
+  action      String   // LOGIN, CREATE_ADMIN, DELETE_USER, UPDATE_BUSINESS, etc.
+  description String
+  createdAt   DateTime @default(now())
+
+  @@map("admin_logs")
+}
+
+enum AdminRole {
+  SUPERADMIN
+  EDITOR
+  SOPORTE
+}

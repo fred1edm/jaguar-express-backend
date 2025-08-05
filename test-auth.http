@@ -1,0 +1,39 @@
+### Variables
+@baseUrl = http://localhost:3001
+@adminEmail = admin@jaguarexpress.com
+@adminPassword = admin123
+
+### 1. Login
+POST {{baseUrl}}/api/admin/auth/login
+Content-Type: application/json
+
+{
+  "email": "{{adminEmail}}",
+  "password": "{{adminPassword}}"
+}
+
+### 2. Get Profile (usar el token del login anterior)
+GET {{baseUrl}}/api/admin/auth/me
+Authorization: Bearer YOUR_TOKEN_HERE
+
+### 3. Register new admin
+POST {{baseUrl}}/api/admin/auth/register
+Content-Type: application/json
+
+{
+  "email": "admin2@test.com",
+  "password": "123456",
+  "name": "Admin Test 2"
+}
+
+### 4. Refresh Token
+POST {{baseUrl}}/api/admin/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "YOUR_REFRESH_TOKEN_HERE"
+}
+
+### 5. Logout
+POST {{baseUrl}}/api/admin/auth/logout
+Authorization: Bearer YOUR_TOKEN_HERE
