@@ -1,5 +1,7 @@
 import dotenv from 'dotenv'
-import app from './app'
+import app from './app.js'
+
+// Servidor actualizado para puerto 3003
 
 // Cargar variables de entorno
 dotenv.config()

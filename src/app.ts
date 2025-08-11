@@ -5,6 +5,11 @@ import rateLimit from '@fastify/rate-limit'
 import multipart from '@fastify/multipart'  // ← NUEVO
 import fastifyStatic from '@fastify/static'
 import path from 'path'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 // Importar rutas
 import adminRoutes from './routes/admin'
@@ -51,10 +56,10 @@ app.register(publicRoutes, { prefix: '/api' })
 app.register(userRoutes, { prefix: '/api/users' })
 
 // Servir archivos estáticos del frontend
-app.register(fastifyStatic, {
-  root: path.join(__dirname, '../../jaguar-express-admin/dist'),
-  prefix: '/',
-  decorateReply: false
-})
+// app.register(fastifyStatic, {
+//   root: path.join(__dirname, '../../jaguar-express-admin/dist'),
+//   prefix: '/',
+//   decorateReply: false
+// })
 
 export default app

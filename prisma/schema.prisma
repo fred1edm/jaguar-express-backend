@@ -266,3 +266,18 @@ enum AdminRole {
   EDITOR
   SOPORTE
 }
+
+model Configuracion {
+  id                String   @id @default(cuid())
+  nombreEmpresa     String   @default("Jaguar Express")
+  logoUrl           String?
+  metodosPago       Json     @default("[\"EFECTIVO\", \"YAPE\", \"PLIN\"]")
+  horarioOperacion  Json     @default("{\"lunes\":{\"abierto\":true,\"inicio\":\"08:00\",\"fin\":\"22:00\"},\"martes\":{\"abierto\":true,\"inicio\":\"08:00\",\"fin\":\"22:00\"},\"miercoles\":{\"abierto\":true,\"inicio\":\"08:00\",\"fin\":\"22:00\"},\"jueves\":{\"abierto\":true,\"inicio\":\"08:00\",\"fin\":\"22:00\"},\"viernes\":{\"abierto\":true,\"inicio\":\"08:00\",\"fin\":\"22:00\"},\"sabado\":{\"abierto\":true,\"inicio\":\"08:00\",\"fin\":\"22:00\"},\"domingo\":{\"abierto\":false,\"inicio\":\"08:00\",\"fin\":\"22:00\"}}")
+  notificaciones    Json     @default("{\"email\":true,\"sms\":false,\"push\":true,\"whatsapp\":true}")
+  reglas            Json     @default("{\"tiempoMaximoEntrega\":60,\"montoMinimoDelivery\":15,\"radioCoberturaKm\":10,\"comisionPlataforma\":10}")
+  colores           Json     @default("{\"primario\":\"#1f2937\",\"secundario\":\"#3b82f6\",\"acento\":\"#10b981\",\"fondo\":\"#f9fafb\"}")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("configuracion")
+}

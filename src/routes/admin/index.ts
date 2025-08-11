@@ -9,6 +9,7 @@ import uploadRoutes from './upload'  // ← NUEVO
 import usuariosRoutes from './usuarios'  // ← NUEVO
 import usersRoutes from './users'  // ← NUEVO
 import auditRoutes from './audit'  // ← NUEVO
+import configuracionRoutes from './configuracion'  // ← NUEVO
 
 export default async function adminRoutes(fastify: FastifyInstance) {
   // Rutas de autenticación (sin middleware)
@@ -24,4 +25,5 @@ export default async function adminRoutes(fastify: FastifyInstance) {
   fastify.register(usuariosRoutes, { prefix: '/usuarios' })  // ← NUEVO
   fastify.register(usersRoutes, { prefix: '/users' })  // ← NUEVO
   fastify.register(auditRoutes, { prefix: '/audit' })  // ← NUEVO
+  fastify.register(configuracionRoutes, { prefix: '/configuracion' })  // ← NUEVO
 }
