@@ -1,7 +1,7 @@
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
-import { auditService } from '../../services/audit.service';
-import { authMiddleware } from '../../middleware/auth';
-import { AUDIT_ACTIONS, createAuditLog } from '../../middleware/audit';
+import { auditService } from '../../services/audit.service.js';
+import { authMiddleware } from '../../middleware/auth.js';
+import { AUDIT_ACTIONS, createAuditLog } from '../../middleware/audit.js';
 
 interface AuditRequest extends FastifyRequest {
   admin?: {

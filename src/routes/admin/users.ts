@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify'
 import { PrismaClient } from '@prisma/client'
-import { authMiddleware } from '../../middleware/auth'
+import { authMiddleware } from '../../middleware/auth.js'
 
 const prisma = new PrismaClient()
 

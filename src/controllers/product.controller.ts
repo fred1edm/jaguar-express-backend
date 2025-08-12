@@ -1,7 +1,7 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { ProductService } from '../services/product.service'
-import { successResponse, errorResponse } from '../utils/response'
-import { CreateProductInput, UpdateProductInput, ProductQueryInput, MenuQueryInput } from '../schemas/product'
+import { ProductService } from '../services/product.service.js'
+import { successResponse, errorResponse } from '../utils/response.js'
+import { CreateProductInput, UpdateProductInput, ProductQueryInput, MenuQueryInput } from '../schemas/product.js'
 
 export class ProductController {
   

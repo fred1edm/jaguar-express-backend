@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { errorResponse } from './response.js'
+import { errorResponse } from '../utils/response.js'
 
 // Utility para validar datos con Zod
 export const validateBody = <T>(schema: z.ZodSchema<T>) => {

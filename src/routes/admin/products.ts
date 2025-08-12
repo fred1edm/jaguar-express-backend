@@ -1,12 +1,12 @@
 import { FastifyInstance } from 'fastify'
-import { ProductController } from '../../controllers/product.controller'
-import { authMiddleware } from '../../middleware/auth'
+import { ProductController } from '../../controllers/product.controller.js'
+import { authMiddleware } from '../../middleware/auth.js'
 import { 
   createProductSchema, 
   updateProductSchema, 
   productQuerySchema 
 } from '../../schemas/product'
-import { validateBody, validateQuery } from '../../utils/validation'
+import { validateBody, validateQuery } from '../../utils/validation.js'
 
 export default async function productRoutes(fastify: FastifyInstance) {
   

@@ -1,5 +1,5 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { usersService } from '../services/users.service'
+import { usersService } from '../services/users.service.js'
 import { 
   registerUserSchema, 
   verifyPhoneSchema, 
@@ -7,9 +7,9 @@ import {
   RegisterUserInput,
   VerifyPhoneInput,
   ResendCodeInput
-} from '../schemas/users'
-import { successResponse, errorResponse } from '../utils/response'
-import { UserAuthPayload } from '../types'
+} from '../schemas/users.js'
+import { successResponse, errorResponse } from '../utils/response.js'
+import { UserAuthPayload } from '../types/index.js'
 
 // Extender el tipo de request para incluir user
 declare module 'fastify' {

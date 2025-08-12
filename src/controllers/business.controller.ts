@@ -1,7 +1,7 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { BusinessService } from '../services/business.service'
-import { successResponse, errorResponse } from '../utils/response'
-import { CreateBusinessInput, UpdateBusinessInput, BusinessQueryInput } from '../schemas/business'
+import { BusinessService } from '../services/business.service.js'
+import { successResponse, errorResponse } from '../utils/response.js'
+import { CreateBusinessInput, UpdateBusinessInput, BusinessQueryInput } from '../schemas/business.js'
 
 export class BusinessController {
   

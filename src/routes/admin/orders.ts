@@ -1,11 +1,11 @@
 import { FastifyInstance } from 'fastify'
-import { OrderController } from '../../controllers/order.controller'
-import { authMiddleware } from '../../middleware/auth'
+import { OrderController } from '../../controllers/order.controller.js'
+import { authMiddleware } from '../../middleware/auth.js'
 import { 
   updateOrderStatusSchema, 
   orderQuerySchema 
 } from '../../schemas/order'
-import { validateBody, validateQuery } from '../../utils/validation'
+import { validateBody, validateQuery } from '../../utils/validation.js'
 
 export default async function orderRoutes(fastify: FastifyInstance) {
   

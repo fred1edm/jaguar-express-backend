@@ -1,8 +1,8 @@
 import { FastifyInstance } from 'fastify'
-import { AuthController } from '../../controllers/auth.controller'
-import { authMiddleware } from '../../middleware/auth'
-import { loginSchema, registerAdminSchema, refreshTokenSchema } from '../../schemas/auth'
-import { validateBody } from '../../utils/validation'
+import { AuthController } from '../../controllers/auth.controller.js'
+import { authMiddleware } from '../../middleware/auth.js'
+import { loginSchema, registerAdminSchema, refreshTokenSchema } from '../../schemas/auth.js'
+import { validateBody } from '../../utils/validation.js'
 
 export default async function authRoutes(fastify: FastifyInstance) {
   

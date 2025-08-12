@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcryptjs'
-import { generateAdminTokens, verifyAdminRefreshToken } from '../utils/jwt'
-import { LoginInput, RegisterAdminInput } from '../schemas/auth'
+import { generateAdminTokens, verifyAdminRefreshToken } from '../utils/jwt.js'
+import { LoginInput, RegisterAdminInput } from '../schemas/auth.js'
 
 const prisma = new PrismaClient()
 

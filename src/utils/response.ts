@@ -1,4 +1,4 @@
-import { ApiResponse } from '../types'
+import { ApiResponse } from '../types/index.js'
 
 export const successResponse = <T>(data: T, message?: string): ApiResponse<T> => ({
   success: true,

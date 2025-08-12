@@ -1,7 +1,7 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { verifyAdminAccessToken } from '../utils/jwt'
-import { errorResponse } from '../utils/response'
-import { AuthService } from '../services/auth.service'
+import { verifyAdminAccessToken } from '../utils/jwt.js'
+import { errorResponse } from '../utils/response.js'
+import { AuthService } from '../services/auth.service.js'
 
 export const authMiddleware = async (request: FastifyRequest, reply: FastifyReply) => {
   try {

@@ -5,7 +5,7 @@ import {
   OrderQueryInput,
   CreateCustomOrderInput,
   CreateTransportRequestInput 
-} from '../schemas/order'
+} from '../schemas/order.js'
 
 const prisma = new PrismaClient()
 

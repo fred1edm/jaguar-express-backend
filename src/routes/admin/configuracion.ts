@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify'
-import { ConfiguracionController } from '../../controllers/configuracion.controller'
-import { authMiddleware } from '../../middleware/auth'
+import { ConfiguracionController } from '../../controllers/configuracion.controller.js'
+import { authMiddleware } from '../../middleware/auth.js'
 
 export default async function configuracionRoutes(fastify: FastifyInstance) {
   

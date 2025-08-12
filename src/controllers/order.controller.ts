@@ -1,13 +1,13 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { OrderService } from '../services/order.service'
-import { successResponse, errorResponse } from '../utils/response'
+import { OrderService } from '../services/order.service.js'
+import { successResponse, errorResponse } from '../utils/response.js'
 import { 
   CreateOrderInput, 
   UpdateOrderStatusInput, 
   OrderQueryInput,
   CreateCustomOrderInput,
   CreateTransportRequestInput 
-} from '../schemas/order'
+} from '../schemas/order.js'
 
 export class OrderController {
   

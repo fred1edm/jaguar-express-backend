@@ -1,8 +1,8 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { AuthService } from '../services/auth.service'
-import { successResponse, errorResponse } from '../utils/response'
-import { LoginInput, RegisterAdminInput, RefreshTokenInput } from '../schemas/auth'
-import { verifyRefreshToken } from '../utils/jwt'
+import { AuthService } from '../services/auth.service.js'
+import { successResponse, errorResponse } from '../utils/response.js'
+import { LoginInput, RegisterAdminInput, RefreshTokenInput } from '../schemas/auth.js'
+import { verifyRefreshToken } from '../utils/jwt.js'
 
 export class AuthController {
   

@@ -1,5 +1,5 @@
 import { PrismaClient, BusinessType } from '@prisma/client'
-import { CreateBusinessInput, UpdateBusinessInput, BusinessQueryInput } from '../schemas/business'
+import { CreateBusinessInput, UpdateBusinessInput, BusinessQueryInput } from '../schemas/business.js'
 
 const prisma = new PrismaClient()
 

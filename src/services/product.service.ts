@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client'
-import { CreateProductInput, UpdateProductInput, ProductQueryInput, MenuQueryInput } from '../schemas/product'
+import { CreateProductInput, UpdateProductInput, ProductQueryInput, MenuQueryInput } from '../schemas/product.js'
 
 const prisma = new PrismaClient()
 

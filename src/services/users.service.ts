@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client'
-import { RegisterUserInput } from '../schemas/users'
+import { RegisterUserInput, VerifyPhoneInput, ResendCodeInput } from '../schemas/users.js'
 import { 
   sendVerificationCodeWhatsApp, 
   generateVerificationCode, 
@@ -7,8 +7,9 @@ import {
   verifyCode,
   hasValidCode,
   validatePhoneNumber
-} from '../utils/whatsapp'
-import { generateUserTokens } from '../utils/jwt'
+} from '../utils/whatsapp.js'
+import { generateUserTokens } from '../utils/jwt.js'
+import { sendSMSVerification } from '../utils/sms.js'
 
 const prisma = new PrismaClient()
 

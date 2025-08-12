@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { ConfiguracionService } from '../services/configuracion.service'
-import { successResponse, errorResponse } from '../utils/response'
+import { ConfiguracionService } from '../services/configuracion.service.js'
+import { successResponse, errorResponse } from '../utils/response.js'
 
 export interface UpdateConfiguracionInput {
   nombreEmpresa?: string

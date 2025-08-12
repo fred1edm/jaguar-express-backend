@@ -1,8 +1,8 @@
 import { FastifyInstance } from 'fastify'
-import { BusinessController } from '../../controllers/business.controller'
-import { ProductController } from '../../controllers/product.controller'
-import { businessQuerySchema } from '../../schemas/business'
-import { validateQuery } from '../../utils/validation'
+import { BusinessController } from '../../controllers/business.controller.js'
+import { ProductController } from '../../controllers/product.controller.js'
+import { businessQuerySchema } from '../../schemas/business.js'
+import { validateQuery } from '../../utils/validation.js'
 
 export default async function businessRoutes(fastify: FastifyInstance) {
   

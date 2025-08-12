@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { AdminAuthPayload, UserAuthPayload } from '../types'
+import { AdminAuthPayload, UserAuthPayload } from '../types/index.js'
 
 const JWT_SECRET = process.env.JWT_SECRET!
 const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET!

@@ -1,12 +1,12 @@
 import { FastifyInstance } from 'fastify'
-import { BusinessController } from '../../controllers/business.controller'
-import { authMiddleware } from '../../middleware/auth'
+import { BusinessController } from '../../controllers/business.controller.js'
+import { authMiddleware } from '../../middleware/auth.js'
 import { 
   createBusinessSchema, 
   updateBusinessSchema, 
   businessQuerySchema 
-} from '../../schemas/business'
-import { validateBody, validateQuery } from '../../utils/validation'
+} from '../../schemas/business.js'
+import { validateBody, validateQuery } from '../../utils/validation.js'
 
 export default async function businessRoutes(fastify: FastifyInstance) {
   

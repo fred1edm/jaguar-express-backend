@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify'
-import { UploadController } from '../../controllers/upload.controller'
-import { authMiddleware } from '../../middleware/auth'
+import { UploadController } from '../../controllers/upload.controller.js'
+import { authMiddleware } from '../../middleware/auth.js'
 
 export default async function uploadRoutes(fastify: FastifyInstance) {
   

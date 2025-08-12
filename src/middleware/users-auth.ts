@@ -1,8 +1,8 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { verifyUserAccessToken } from '../utils/jwt'
-import { usersService } from '../services/users.service'
-import { errorResponse } from '../utils/response'
-import { UserAuthPayload } from '../types'
+import { verifyUserAccessToken } from '../utils/jwt.js'
+import { usersService } from '../services/users.service.js'
+import { errorResponse } from '../utils/response.js'
+import { UserAuthPayload } from '../types/index.js'
 
 // Extender el tipo de request para incluir user
 declare module 'fastify' {

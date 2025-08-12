@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { UploadService } from '../services/upload.service'
-import { successResponse, errorResponse } from '../utils/response'
+import { UploadService } from '../services/upload.service.js'
+import { successResponse, errorResponse } from '../utils/response.js'
 
 export interface MultipartFile {
   fieldname: string
