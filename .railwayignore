@@ -86,4 +86,4 @@ nodemon.json
 .prettierrc*
 
 # Prisma development files
-prisma/migrations/
+# prisma/migrations/ - Comentado: las migraciones son necesarias para Railway

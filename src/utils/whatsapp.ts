@@ -55,11 +55,7 @@ export async function sendVerificationCodeWhatsApp(phone: string, code: string):
       }
     })
 
-    console.log('✅ Código de verificación enviado por WhatsApp:', {
-      phone: formattedPhone,
-      messageId: response.data.messages?.[0]?.id,
-      status: response.data.messages?.[0]?.message_status
-    })
+    // Código enviado exitosamente
 
   } catch (error: any) {
     console.error('❌ Error enviando código por WhatsApp:', {

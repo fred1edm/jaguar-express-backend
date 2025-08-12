@@ -9,14 +9,7 @@ import { userAuthMiddleware } from '../middleware/users-auth'
 export default async function userRoutes(fastify: FastifyInstance) {
   // Registrar hooks para logging
   fastify.addHook('preHandler', async (request, reply) => {
-    console.log(`📱 [USERS] ${request.method} ${request.url}`, {
-      body: request.method !== 'GET' ? request.body : undefined,
-      query: Object.keys(request.query as object).length > 0 ? request.query : undefined,
-      headers: {
-        'user-agent': request.headers['user-agent'],
-        'authorization': request.headers.authorization ? '[PRESENTE]' : '[AUSENTE]'
-      }
-    })
+    // Logging simplificado para producción
   })
 
   /**
@@ -292,10 +285,7 @@ export default async function userRoutes(fastify: FastifyInstance) {
 
   // Hook para logging de respuestas
   fastify.addHook('onSend', async (request, reply, payload) => {
-    console.log(`📱 [USERS] ${request.method} ${request.url} - ${reply.statusCode}`, {
-      status: reply.statusCode,
-      responseSize: typeof payload === 'string' ? payload.length : 'N/A'
-    })
+    // Logging simplificado para producción
   })
 }
 

@@ -7,7 +7,7 @@ export function generateSMSCode(): string {
 // TODO: Implementar con un proveedor de SMS real
 export async function sendSMSVerification(phone: string, code: string): Promise<void> {
   // Por ahora solo simulamos el envío
-  console.log(`Enviando SMS al ${phone} con código: ${code}`)
+  // SMS simulation for development
   
   // Aquí se implementará la lógica real de envío de SMS
   // Ejemplo con Twilio:
