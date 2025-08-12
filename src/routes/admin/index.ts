@@ -1,15 +1,15 @@
 import { FastifyInstance } from 'fastify'
-import authRoutes from './auth'
-import businessRoutes from './business'
-import productRoutes from './products'
-import orderRoutes from './orders'
-import customOrderRoutes from './custom-orders'
-import transportRequestRoutes from './transport-requests'
-import uploadRoutes from './upload'  // ← NUEVO
-import usuariosRoutes from './usuarios'  // ← NUEVO
-import usersRoutes from './users'  // ← NUEVO
-import auditRoutes from './audit'  // ← NUEVO
-import configuracionRoutes from './configuracion'  // ← NUEVO
+import authRoutes from './auth.js'
+import businessRoutes from './business.js'
+import productRoutes from './products.js'
+import orderRoutes from './orders.js'
+import customOrderRoutes from './custom-orders.js'
+import transportRequestRoutes from './transport-requests.js'
+import uploadRoutes from './upload.js'  // ← NUEVO
+import usuariosRoutes from './usuarios.js'  // ← NUEVO
+import usersRoutes from './users.js'  // ← NUEVO
+import auditRoutes from './audit.js'  // ← NUEVO
+import configuracionRoutes from './configuracion.js'  // ← NUEVO
 
 export default async function adminRoutes(fastify: FastifyInstance) {
   // Rutas de autenticación (sin middleware)

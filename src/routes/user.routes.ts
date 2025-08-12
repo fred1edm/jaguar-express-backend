@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify'
-import { usersController } from '../controllers/users.controller'
-import { userAuthMiddleware } from '../middleware/users-auth'
+import { usersController } from '../controllers/users.controller.js'
+import { userAuthMiddleware } from '../middleware/users-auth.js'
 
 /**
  * Rutas para usuarios finales

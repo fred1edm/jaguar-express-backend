@@ -1,7 +1,7 @@
 import { FastifyInstance } from 'fastify'
-import businessRoutes from './business'
-import productRoutes from './products'
-import orderRoutes from './orders'  // ← NUEVO
+import businessRoutes from './business.js'
+import productRoutes from './products.js'
+import orderRoutes from './orders.js'  // ← NUEVO
 
 export default async function publicRoutes(fastify: FastifyInstance) {
   fastify.register(businessRoutes, { prefix: '/business' })
