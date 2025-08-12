@@ -12,9 +12,9 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 // Importar rutas
-import adminRoutes from './routes/admin'
-import publicRoutes from './routes/public'
-import userRoutes from './routes/user.routes'
+import adminRoutes from './routes/admin/index.js'
+import publicRoutes from './routes/public/index.js'
+import userRoutes from './routes/user.routes.js'
 
 const app = Fastify({
   logger: {
