@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client'
-import { RegisterUserInput, VerifyPhoneInput, UpdateUserInput } from '../schemas/user'
-import { generateSMSCode, sendSMSVerification } from '../utils/sms'
-import { generateUserTokens, verifyUserRefreshToken } from '../utils/jwt'
+import { RegisterUserInput, VerifyPhoneInput, UpdateUserInput } from '../schemas/user.js'
+import { generateSMSCode, sendSMSVerification } from '../utils/sms.js'
+import { generateUserTokens, verifyUserRefreshToken } from '../utils/jwt.js'
 
 const prisma = new PrismaClient()
 

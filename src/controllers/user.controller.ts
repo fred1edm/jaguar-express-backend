@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { UserService } from '../services/user.service'
-import { registerUserSchema, verifyPhoneSchema, updateUserSchema } from '../schemas/user'
+import { UserService } from '../services/user.service.js'
+import { registerUserSchema, verifyPhoneSchema, updateUserSchema } from '../schemas/user.js'
 
 export class UserController {
   // Registrar nuevo usuario

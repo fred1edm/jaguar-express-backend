@@ -1,7 +1,7 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { UserService } from '../services/user.service'
-import { successResponse, errorResponse } from '../utils/response'
-import { verifyUserRefreshToken } from '../utils/jwt'
+import { UserService } from '../services/user.service.js'
+import { successResponse, errorResponse } from '../utils/response.js'
+import { verifyUserRefreshToken } from '../utils/jwt.js'
 
 export class UserAuthController {
   

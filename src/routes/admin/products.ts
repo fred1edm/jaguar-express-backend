@@ -5,7 +5,7 @@ import {
   createProductSchema, 
   updateProductSchema, 
   productQuerySchema 
-} from '../../schemas/product'
+} from '../../schemas/product.js'
 import { validateBody, validateQuery } from '../../utils/validation.js'
 
 export default async function productRoutes(fastify: FastifyInstance) {

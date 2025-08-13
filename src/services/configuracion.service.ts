@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client'
-import { UpdateConfiguracionInput } from '../controllers/configuracion.controller'
+import { UpdateConfiguracionInput } from '../controllers/configuracion.controller.js'
 
 const prisma = new PrismaClient()
 

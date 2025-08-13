@@ -4,7 +4,7 @@ import { authMiddleware } from '../../middleware/auth.js'
 import { 
   updateOrderStatusSchema, 
   orderQuerySchema 
-} from '../../schemas/order'
+} from '../../schemas/order.js'
 import { validateBody, validateQuery } from '../../utils/validation.js'
 
 export default async function orderRoutes(fastify: FastifyInstance) {
